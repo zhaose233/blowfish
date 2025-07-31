@@ -1,4 +1,9 @@
 <head>
+
+  {{ if .Param "math" }}
+    {{ partial "math.html" . }}
+  {{ end }}
+
   <meta charset="utf-8">
   {{ with .Site.Language.Params.htmlCode | default .Site.LanguageCode }}
     <meta http-equiv="content-language" content="{{ . }}">
@@ -219,9 +224,5 @@
   {{/* Advertisement */}}
   {{ with .Site.Params.advertisement.adsense }}
     <meta name="google-adsense-account" content="{{ . }}">
-  {{ end }}
-
-  {{ if .Param "math" }}
-    {{ partialCached "math.html" . }}
   {{ end }}
 </head>
